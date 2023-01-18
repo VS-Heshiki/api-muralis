@@ -1,4 +1,5 @@
+import 'module-alias/register'
 import app from './config/app'
-import env from './config/env'
+import env from '@/main/config/env'
 
-app.listen(env.port, () => console.log(`Listening in ${ env.port } port`))
+app.listen(env.PORT, () => console.log(`Listening in ${ env.PORT } port`))
