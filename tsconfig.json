@@ -10,6 +10,7 @@
         "skipLibCheck": true,
         "baseUrl": "src",
         "experimentalDecorators": true,
+        "useUnknownInCatchVariables": false,
         "strict": true,
         "paths": {
             "@/*": [
