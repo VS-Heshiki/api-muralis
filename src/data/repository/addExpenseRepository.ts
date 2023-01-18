@@ -4,7 +4,6 @@ export interface AddExpenseRepository {
 
 export namespace AddExpenseRepository {
     export type Params = {
-        id: string
         value: number
         description: string
         date: Date

@@ -4,7 +4,6 @@ export interface AddExpense {
 
 export namespace AddExpense {
     export type Params = {
-        id: string
         value: number
         description: string
         date: Date

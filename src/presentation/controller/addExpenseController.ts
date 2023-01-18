@@ -19,7 +19,6 @@ export class AddExpenseController implements Controller {
 
 export namespace AddExpenseController {
     export type Request = {
-        id: string,
         value: number,
         description: string,
         date: Date,
