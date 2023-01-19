@@ -3,3 +3,7 @@ export type HttpResponse = {
     success: boolean
     statusCode: number
 }
+
+export type HttpRequest = {
+    data: any
+}
