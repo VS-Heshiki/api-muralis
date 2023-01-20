@@ -24,5 +24,9 @@ export const KnexHelper = {
 
     async add (expense: AddExpense.Params, table: string): Promise<void> {
         await knex(table).insert(expense)
+    },
+
+    async loadByMonth (): Promise<any> {
+        return await knex.raw(`SELECT * FROM expense WHERE date = (MONTH(NOW()) AND YEAR(NOW()))`)
     }
 }
