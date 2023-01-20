@@ -13,7 +13,8 @@
         "knex:latest": "npx knex migrate:latest --knexfile src/infra/database/config/knexfile.ts",
         "knex:rollback": "npx knex migrate:rollback --knexfile src/infra/database/config/knexfile.ts",
         "knex:seed": "npx knex seed:make --knexfile src/infra/database/config/knexfile.ts -x ts",
-        "knex:run": "npx knex seed:run --knexfile src/infra/database/config/knexfile.ts"
+        "knex:run": "npx knex seed:run --knexfile src/infra/database/config/knexfile.ts",
+        "init:all": "npm run knex:rollback && npm run knex:latest && npm run knex:run && npm run build && npm start"
     },
     "keywords": [],
     "author": "",
