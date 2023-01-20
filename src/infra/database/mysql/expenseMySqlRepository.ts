@@ -8,6 +8,7 @@ export class ExpenseMySqlRepository implements AddExpenseRepository, LoadExpense
     }
 
     async load (): Promise<LoadExpenseRepository.Resolve> {
-        return await KnexHelper.loadByMonth()
+        const resolve = await KnexHelper.loadByMonth()
+        return resolve[0]
     }
 }

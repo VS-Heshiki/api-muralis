@@ -24,7 +24,7 @@ export namespace AddExpenseController {
     export type Request = {
         value: number
         description: string
-        date: Date
+        date: string
         typePaymentId: number
         categoryId: number
     }
