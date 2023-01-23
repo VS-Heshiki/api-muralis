@@ -7,7 +7,6 @@ export class LoadExpenseService implements LoadExpense {
         private readonly loadExpenseRepository: LoadExpenseRepository
     ) { }
     async execute (): Promise<LoadExpense.Resolve> {
-        const expense = await this.loadExpenseRepository.load()
-        return expense
+        return await this.loadExpenseRepository.load()
     }
 }
