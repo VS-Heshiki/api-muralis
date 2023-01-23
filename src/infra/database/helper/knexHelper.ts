@@ -18,11 +18,11 @@ export const KnexHelper = {
 
     async getId (table: string): Promise<any> {
         const resolve = await knex.raw(`SELECT * FROM ${ table } WHERE id = (SELECT LAST_INSERT_ID())`)
-        return resolve[0]
+        return resolve
     },
 
-    async add (expense: AddExpense.Params, table: string): Promise<void> {
-        await knex(table).insert(expense)
+    async add (expense: AddExpense.Params, table: string): Promise<AddExpense.Resolve> {
+        return await knex(table).insert(expense)
     },
 
     async loadByMonth (): Promise<any> {

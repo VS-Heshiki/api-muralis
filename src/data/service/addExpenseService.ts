@@ -6,7 +6,7 @@ export class AddExpenseService implements AddExpense {
     constructor (
         private readonly addExpenseRepository: AddExpenseRepository
     ) { }
-    async execute (params: AddExpense.Params): Promise<void> {
-        await this.addExpenseRepository.add(params)
+    async execute (params: AddExpense.Params): Promise<AddExpense.Resolve> {
+        return await this.addExpenseRepository.add(params)
     }
 }

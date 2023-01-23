@@ -1,5 +1,5 @@
 export interface AddExpenseRepository {
-    add: (params: AddExpenseRepository.Params) => Promise<void>
+    add: (params: AddExpenseRepository.Params) => Promise<AddExpenseRepository.Resolve>
 }
 
 export namespace AddExpenseRepository {
@@ -9,5 +9,9 @@ export namespace AddExpenseRepository {
         date: string
         typePaymentId: number
         categoryId: number
+    }
+
+    export type Resolve = {
+        id: number
     }
 }
