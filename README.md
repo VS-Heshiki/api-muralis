@@ -1,7 +1,23 @@
-
 # API Muralis
 
-API dedicada ao teste requerido pela empresa Muralis.
+API dedicada ao teste requerido pela empresa Muralis, no qual foi solicitado para criar uma API para controle de gastos, em que consiste no usuário inserir as informações requeridas para inserção no banco de dados e para a consulta dos gastos referentes ao mês vigente.
+
+## Iniciando a API
+
+Comando para instalar todas as dependências
+```
+  npm install
+```
+
+Comando para iniciar a API
+```
+  npm run init:all
+```
+
+### URL
+```
+localhost:8080
+```
 
 ## Documentação da API
 
@@ -66,5 +82,3 @@ API dedicada ao teste requerido pela empresa Muralis.
 * Knex
 * Mysql2
 * Rimraf
-
-# SCRIPT INICIAL: npm run init:all
