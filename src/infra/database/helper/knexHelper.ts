@@ -3,20 +3,6 @@ import { AddExpense } from '@/domain/features'
 
 
 export const KnexHelper = {
-    format (date: string): Date {
-        const formatObj = date.toLocaleString()
-        const dateObj = new Date(formatObj)
-        return dateObj
-    },
-
-    map (params: any): any {
-        const objDate = this.format(params.date)
-        const { date, ...rest } = params
-        return {
-            ...rest,
-            date: objDate
-        }
-    },
 
     async add (expense: AddExpense.Params, table: string): Promise<AddExpense.Resolve> {
         return await knex(table).insert(expense)

@@ -3,8 +3,8 @@ import { KnexHelper } from '@/infra/database/helper/knexHelper'
 
 export class ExpenseMySqlRepository implements AddExpenseRepository, LoadExpenseRepository {
     async add (params: AddExpenseRepository.Params): Promise<AddExpenseRepository.Resolve> {
-        const props = KnexHelper.map(params)
-        return await KnexHelper.add(props, 'expense')
+        const resolve = await KnexHelper.add(params, 'expense')
+        return resolve
     }
 
     async load (): Promise<LoadExpenseRepository.Resolve> {

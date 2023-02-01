@@ -6,7 +6,7 @@ export namespace AddExpense {
     export type Params = {
         value: number
         description: string
-        date: string
+        date: Date
         typePaymentId: number
         categoryId: number
     }

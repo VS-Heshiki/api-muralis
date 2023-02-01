@@ -7,8 +7,14 @@ export const serverError = (error: Error): HttpResponse => ({
     success: false
 })
 
-export const success = (data: any): HttpResponse => ({
+export const success = (data: object): HttpResponse => ({
     statusCode: 200,
     data,
     success: true
+})
+
+export const badRequest = (error: Error): HttpResponse => ({
+    statusCode: 400,
+    data: error.message,
+    success: false
 })

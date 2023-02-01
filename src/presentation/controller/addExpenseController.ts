@@ -1,29 +1,28 @@
 import { AddExpense } from '@/domain/features'
-import { serverError, success } from '@/presentation/helpers/httpHelpers'
+import { MissingParamError } from '@/presentation/errors'
+import { badRequest, serverError, success } from '@/presentation/helpers/httpHelpers'
 import { Controller } from '@/presentation/protocols/controller'
-import { HttpResponse } from '@/presentation/protocols/http'
+import { HttpRequest, HttpResponse } from '@/presentation/protocols/http'
 
 
 export class AddExpenseController implements Controller {
 
     constructor (private readonly addExpense: AddExpense) { }
 
-    async handle (request: AddExpenseController.Request): Promise<HttpResponse> {
+    async handle (request: HttpRequest): Promise<HttpResponse> {
         try {
-            const resolve = await this.addExpense.execute(request)
-            return success({ 'id': resolve })
+            const requiredFields = ['value', 'description', 'date', 'typePaymentId', 'categoryId']
+            for (const field of requiredFields) {
+                if (!request.data[field]) {
+                    return badRequest(new MissingParamError(field))
+                }
+            }
+
+            const resolve = await this.addExpense.execute(request.data)
+            return success({ id: resolve })
         } catch (err) {
+            console.log(err)
             return serverError(err)
         }
-    }
-}
-
-export namespace AddExpenseController {
-    export type Request = {
-        value: number
-        description: string
-        date: string
-        typePaymentId: number
-        categoryId: number
     }
 }
